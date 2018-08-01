@@ -1,0 +1,16 @@
+---
+
+- name: install and start apache
+  hosts: all
+  become: yes
+
+  tasks: 
+  - name: install epel release
+    yum: pkg=epel-release state=present
+
+  - name: install apache
+    yum: name=httpd state=latest
+
+  - name: start apache
+    service: name=httpd state=restarted enabled=yes
+  

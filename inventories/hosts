@@ -1,0 +1,29 @@
+[boston-appservers]
+host1 ansible_host=192.168.56.5
+
+[atlanta-appservers]
+host2 ansible_host=192.168.56.4 ansible_user=root
+
+[atlanta-dbservers]
+host3 ansible_host=192.168.56.3 ansible_user=root
+
+[bostot-dbservers]
+host4 ansible_host=172.16.3.79 ansible_user=vagrant 
+#appservers in all geo
+[appservers:children]
+host1 ansible_host=192.168.56.5
+host2 ansible_host=192.168.56.4 ansible_user=root
+
+#dbservers in all geo
+[dbservers:children]
+host3 ansible_host=192.168.56.3 ansible_user=root
+host4 ansible_host=172.16.3.79 ansible_user=vagrant 
+#everything in the Atlanta geo
+[atlanta:children]
+host2 ansible_host=192.168.56.4 ansible_user=root
+host3 ansible_host=192.168.56.3 ansible_user=root
+
+#everything in the Boston geo
+[boston:children]
+host1 ansible_host=192.168.56.5
+

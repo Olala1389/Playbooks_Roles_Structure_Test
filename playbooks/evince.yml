@@ -1,0 +1,15 @@
+---
+  - name: copy evince pdf editor to host4 from local downloads
+    hosts: host4
+    become: yes
+    tasks: 
+      - name: copy evince
+        copy:
+           src: /Users/olgasfolder/Downloads/evince-common_3.4.0-0ubuntu1.8_all.deb
+           dest: /evince/
+      - name: ensure evince is started
+        service: 
+          name: evince 
+          service: started
+
+
