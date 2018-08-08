@@ -1,0 +1,4 @@
+---
+ansible_host=172.16.3.79
+ansible_user=vagrant
+ansible_os_system="Ubuntu"
