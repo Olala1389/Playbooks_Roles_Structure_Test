@@ -1,4 +1,9 @@
 ---
 
-  - name: install apache2
+  - name: install apache2 on Ubuntu
     apt: name=apache2 state=present
+    when: ansible_os_family == "Ubuntu"
+
+  - name: install http on Centos 
+    yum: name=http state=present
+    when: ansible_os_family == "Centos"

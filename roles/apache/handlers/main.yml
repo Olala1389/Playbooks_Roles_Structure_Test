@@ -4,3 +4,6 @@
 # restarting apache server
 - name: restart apache service
   service: name=apache2 state=restarted
+
+- name: restart httpd service
+  service: name=httpd state=restarted
